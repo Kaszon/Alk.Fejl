@@ -4,6 +4,7 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 
 ## Funkcionális követelmények:
 
++ A látogató tudjon regisztrálni.
 + A felhasználó tudjon az oldalra bejelentkezni.
 + Tudjon hozzáadni tételeket a kiadásokhoz/bevételekhez.
 + Le tudjon kérdezni adott időszakra vonatkozóan tételek.
@@ -150,12 +151,6 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="center" width="33%">ID</td>
         <td align="center" width="33%">BIGINT</td>
         <td align="justify" width="33%">felhasználó azonosítója (PK)</td>
-    </tr>
-        <tr align="center" width="100%">
-        <td align="center" width="33%">PICTURE_URL</td>
-        <td align="center" width="33%">VARCHAR2(200)</td>
-        <td align="justify" width="33%">felhasználó profilképe</td>
-    </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">FIRST_NAME</td>
         <td align="center" width="33%">VARCHAR2(15)</td>
@@ -167,11 +162,6 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">felhasználó vezetékneve</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="33%">USERNAME</td>
-        <td align="center" width="33%">VARCHAR2(15)</td>
-        <td align="justify" width="33%">felhasználónév</td>
-    </tr>
-    <tr align="center" width="100%">
         <td align="center" width="33%">PASSWORD</td>
         <td align="center" width="33%">VARCHAR2(60)</td>
         <td align="justify" width="33%">hashelt jelszó</td>
@@ -179,7 +169,12 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
     <tr align="center" width="100%">
         <td align="center" width="33%">EMAIL</td>
         <td align="center" width="33%">VARCHAR2(50)</td>
-        <td align="justify" width="33%">email cím</td>
+        <td align="justify" width="33%">email cím (FK)</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">BALANCE</td>
+        <td align="center" width="33%">VARCHAR2(50)</td>
+        <td align="justify" width="33%">felhasználó egyenlege</td>
     </tr>
 </table>
 
@@ -231,7 +226,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
     <tr align="center" width="100%">
         <td align="center" width="33%">USER</td>
         <td align="center" width="33%">VARCHAR2(15)</td>
-        <td align="justify" width="33%">tulajdonos felhasználóneve (FK)</td>
+        <td align="justify" width="33%">tulajdonos azonosítója (FK)</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">CATEGORY</td>
