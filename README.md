@@ -23,7 +23,119 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 + Felhasználó
 + Admin
 
-## Adatbázis séma:
+## Végpontok
+
+<table align="center" width="100%">
+    <tr align="center" width="100%">
+        <th width="25%">TÍPUS</th>
+        <th width="25%">SZEREPKÖR</th>
+        <th width="25%">TÁBLA</th>
+        <th width="25%">LEÍRÁS</th>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">POST</td>
+        <td align="center" width="25%">Látogató</td>
+        <td align="center" width="25%">USERS</td>
+        <td align="justify" width="25%">regisztráció</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">GET</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">ITEMS</td>
+        <td align="justify" width="25%">lekéri az összes tételét</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">POST</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">ITEMS</td>
+        <td align="justify" width="25%">tételt hozzáad</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">PUT</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">ITEMS</td>
+        <td align="justify" width="25%">tételt módosít</td>
+    </tr>    
+    <tr align="center" width="100%">
+        <td align="center" width="25%">DELETE</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">ITEMS</td>
+        <td align="justify" width="25%">tételt töröl</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">GET</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">PARTNERS</td>
+        <td align="justify" width="25%">lekéri az összes partnerét</td>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">POST</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">PARTNERS</td>
+        <td align="justify" width="25%">partnert hozzáad</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">PUT</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">PARTNERS</td>
+        <td align="justify" width="25%">partnert módosít</td>
+    </tr>    
+    <tr align="center" width="100%">
+        <td align="center" width="25%">DELETE</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">PARTNERS</td>
+        <td align="justify" width="25%">partnert töröl</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">GET</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">CATEGORIES</td>
+        <td align="justify" width="25%">lekéri az összes kategóriát</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">POST</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">CATEGORIES</td>
+        <td align="justify" width="25%">kategóriát hozzáad</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">PUT</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">CATEGORIES</td>
+        <td align="justify" width="25%">kategóriát módosít</td>
+    </tr>    
+    <tr align="center" width="100%">
+        <td align="center" width="25%">DELETE</td>
+        <td align="center" width="25%">Felhasználó</td>
+        <td align="center" width="25%">CATEGORIES</td>
+        <td align="justify" width="25%">kategóriát töröl</td>
+    </tr>
+        <tr align="center" width="100%">
+        <td align="center" width="25%">GET</td>
+        <td align="center" width="25%">Admin</td>
+        <td align="center" width="25%">USERS</td>
+        <td align="justify" width="25%">lekéri az összes felhasználót</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">POST</td>
+        <td align="center" width="25%">Admin</td>
+        <td align="center" width="25%">USERS</td>
+        <td align="justify" width="25%">felhasználót hozzáad, nem regisztráción keresztül</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="25%">PUT</td>
+        <td align="center" width="25%">Admin</td>
+        <td align="center" width="25%">USERS</td>
+        <td align="justify" width="25%">felhasználót módosít</td>
+    </tr>    
+    <tr align="center" width="100%">
+        <td align="center" width="25%">DELETE</td>
+        <td align="center" width="25%">Admin</td>
+        <td align="center" width="25%">USERS</td>
+        <td align="justify" width="25%">felhasználót töröl</td>
+    </tr>
+</table>
+
+## Adatbázis terv:
 
 <table align="center" width="100%">
     <th colspan="3" width="100%">USERS</th>
@@ -152,36 +264,7 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 </table>
 
 <table align="center" width="100%">
-    <th colspan="3" width="100%">COMMENT</th>
-    <tr align="center" width="100%">
-        <th width="33%">ATTRIBÚTUM</th>
-        <th width="33%">TÍPUS</th>
-        <th width="33%">LEÍRÁS</th>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="33%">ID</td>
-        <td align="center" width="33%">BIGINT</td>
-        <td align="justify" width="33%">komment azonosítója (PK)</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="33%">MESSAGE</td>
-        <td align="center" width="33%">VARCHAR2(500)</td>
-        <td align="justify" width="33%">komment</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="33%">EVENT_ID</td>
-        <td align="center" width="33%">BIGINT</td>
-        <td align="justify" width="33%">hozzátartozó esemény azonosítója (FK)</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="33%">USER_ID</td>
-        <td align="center" width="33%">BIGINT</td>
-        <td align="justify" width="33%">hozzátartozó felhasználó azonosítója (FK)</td>
-    </tr>
-</table>
-
-<table align="center" width="100%">
-    <th colspan="3" width="100%">CATEGORYS</th>
+    <th colspan="3" width="100%">CATEGORIES</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
         <th width="33%">TÍPUS</th>
