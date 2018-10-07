@@ -135,6 +135,8 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
     </tr>
 </table>
 
+Az Admin természetesen az összes felhasználói végpontot is eléri.
+
 ## Adatbázis terv:
 
 <table align="center" width="100%">
