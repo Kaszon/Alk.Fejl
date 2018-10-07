@@ -170,7 +170,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
     <tr align="center" width="100%">
         <td align="center" width="33%">EMAIL</td>
         <td align="center" width="33%">VARCHAR2(50)</td>
-        <td align="justify" width="33%">email cím (FK)</td>
+        <td align="justify" width="33%">email cím</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">BALANCE</td>
