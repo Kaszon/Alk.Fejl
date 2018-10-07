@@ -70,6 +70,39 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 </table>
 
 <table align="center" width="100%">
+    <th colspan="3" width="100%">PARTNERS</th>
+    <tr align="center" width="100%">
+        <th width="33%">ATTRIBÚTUM</th>
+        <th width="33%">TÍPUS</th>
+        <th width="33%">LEÍRÁS</th>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">ID</td>
+        <td align="center" width="33%">BIGINT</td>
+        <td align="justify" width="33%">partner azonosítója (PK)</td>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">NAME</td>
+        <td align="center" width="33%">VARCHAR2(60)</td>
+        <td align="justify" width="33%">partner/cég neve</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">CITY</td>
+        <td align="center" width="33%">VARCHAR2(60)</td>
+        <td align="justify" width="33%">partner/cég városa</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">ADDRESS</td>
+        <td align="center" width="33%">VARCHAR2(60)</td>
+        <td align="justify" width="33%">partner/cég címe</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">TAX_NUM</td>
+        <td align="center" width="33%">VARCHAR2(11)</td>
+        <td align="justify" width="33%">adószám</td>
+    </tr>
+</table>
+
+<table align="center" width="100%">
     <th colspan="3" width="100%">ITEMS</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
