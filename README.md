@@ -7,7 +7,7 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 + A látogató tudjon regisztrálni.
 + A felhasználó tudjon az oldalra bejelentkezni.
 + Tudjon hozzáadni tételeket a kiadásokhoz/bevételekhez.
-+ Le tudjon kérdezni adott időszakra vonatkozóan tételek.
++ Le tudjon kérdezni adott időszakra vonatkozóan tételek vagy partner alapján.
 + Tudja a megtakarításokat vezetni.
 
 ## Nem funkcionális követelmények:
@@ -37,102 +37,103 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Látogató</td>
         <td align="center" width="25%">USERS</td>
-        <td align="justify" width="25%">regisztráció</td>
+        <td align="left" width="25%">regisztráció</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">ITEMS</td>
-        <td align="justify" width="25%">lekéri az összes tételét</td>
+        <td align="left" width="25%">lekéri az összes tételét</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">ITEMS</td>
-        <td align="justify" width="25%">tételt hozzáad</td>
+        <td align="left" width="25%">tételt hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">ITEMS</td>
-        <td align="justify" width="25%">tételt módosít</td>
+        <td align="left" width="25%">tételt módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">ITEMS</td>
-        <td align="justify" width="25%">tételt töröl</td>
+        <td align="left" width="25%">tételt töröl</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">PARTNERS</td>
-        <td align="justify" width="25%">lekéri az összes partnerét</td>
+        <td align="left" width="25%">lekéri az összes partnerét</td>
+    </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">PARTNERS</td>
-        <td align="justify" width="25%">partnert hozzáad</td>
+        <td align="left" width="25%">partnert hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">PARTNERS</td>
-        <td align="justify" width="25%">partnert módosít</td>
+        <td align="left" width="25%">partnert módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">PARTNERS</td>
-        <td align="justify" width="25%">partnert töröl</td>
+        <td align="left" width="25%">partnert töröl</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">CATEGORIES</td>
-        <td align="justify" width="25%">lekéri az összes kategóriát</td>
+        <td align="left" width="25%">lekéri az összes kategóriát</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">CATEGORIES</td>
-        <td align="justify" width="25%">kategóriát hozzáad</td>
+        <td align="left" width="25%">kategóriát hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">CATEGORIES</td>
-        <td align="justify" width="25%">kategóriát módosít</td>
+        <td align="left" width="25%">kategóriát módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">CATEGORIES</td>
-        <td align="justify" width="25%">kategóriát töröl</td>
+        <td align="left" width="25%">kategóriát töröl</td>
     </tr>
         <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Admin</td>
         <td align="center" width="25%">USERS</td>
-        <td align="justify" width="25%">lekéri az összes felhasználót</td>
+        <td align="left" width="25%">lekéri az összes felhasználót</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Admin</td>
         <td align="center" width="25%">USERS</td>
-        <td align="justify" width="25%">felhasználót hozzáad, nem regisztráción keresztül</td>
+        <td align="left" width="25%">felhasználót hozzáad, nem regisztráción keresztül</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Admin</td>
         <td align="center" width="25%">USERS</td>
-        <td align="justify" width="25%">felhasználót módosít</td>
+        <td align="left" width="25%">felhasználót módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Admin</td>
         <td align="center" width="25%">USERS</td>
-        <td align="justify" width="25%">felhasználót töröl</td>
+        <td align="left" width="25%">felhasználót töröl</td>
     </tr>
 </table>
 
