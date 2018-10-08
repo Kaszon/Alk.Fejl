@@ -55,7 +55,7 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
         <td align="center" width="25%">ITEMS</td>
-        <td align="left" width="25%">egy partner az azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
+        <td align="left" width="25%">egy partner azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
