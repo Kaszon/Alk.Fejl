@@ -291,3 +291,10 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">kategória megnevezése</td>
     </tr>
 </table>
+
+## Szerzők:
+
++ **Kertész Kászon**
++ **Szebenyi Gergely**
+
+**[Eötvös Loránd Tudományegyetem Informatikai Kar]**
