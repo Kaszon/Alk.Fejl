@@ -1,3 +1,5 @@
+[Eötvös Loránd Tudományegyetem Informatikai Kar]: http://inf.elte.hu
+
 # Alk.Fejl
 
 Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet feltölteni számlákat, nyugtákat egyéb költségeket. Vezetni lehet, hogy mennyi volt a rezsi, milyen kiadásaink és bevételeink voltak.
