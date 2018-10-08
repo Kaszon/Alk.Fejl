@@ -273,6 +273,11 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="center" width="33%">DATE</td>
         <td align="justify" width="33%">a tétel teljesítésének ideje</td>
     </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="33%">COMMENT</td>
+        <td align="center" width="33%">VARCHAR2(50)</td>
+        <td align="justify" width="33%">a tételhez tartozó megjegyzés</td>
+    </tr>
 </table>
 
 <table align="center" width="100%">
