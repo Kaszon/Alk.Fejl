@@ -11,7 +11,7 @@ public class ActorService {
     @Autowired
     private ActorRepository actorRepository;
     
-    public Iterable<Actor> all() {
+    public Iterable<Actor> getAll() {
         return actorRepository.findAll();
     }
 }
