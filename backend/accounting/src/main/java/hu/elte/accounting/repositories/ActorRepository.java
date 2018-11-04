@@ -7,5 +7,5 @@ import hu.elte.accounting.entities.Actor;
 
 @Repository
 public interface ActorRepository extends CrudRepository<Actor, Integer> {
-
+    //Iterable<Actor> findAll(); 
 }
