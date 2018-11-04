@@ -155,6 +155,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 
 ## Adatbázis terv:
 
+<!---
 <table align="center" width="100%">
     <th colspan="3" width="100%">ACTOR</th>
     <tr align="center" width="100%">
@@ -298,7 +299,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">kategória megnevezése</td>
     </tr>
 </table>
-
+--->
 ## Szerzők:
 
 + **Kertész Kászon**
