@@ -155,6 +155,10 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 
 ## Adatbázis terv:
 ![erd](https://user-images.githubusercontent.com/17639500/47970635-80731580-e088-11e8-9735-4f35f8f5718c.PNG)
+
+## Szekvencia diagram:
+### Regisztráció
+![regisztracio](https://user-images.githubusercontent.com/36520783/47970917-deedc300-e08b-11e8-9e7e-1b4a0c5ff148.png)
 <!---
 <table align="center" width="100%">
     <th colspan="3" width="100%">ACTOR</th>
