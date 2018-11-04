@@ -16,6 +16,7 @@ public class PartnerService {
     @Autowired
     private PartnerRepository partnerRepository;
     
+    @Transactional(readOnly = true)
     public Iterable<Partner> all() {
         return partnerRepository.findAll();
     }

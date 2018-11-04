@@ -16,6 +16,7 @@ public class ActorService {
     @Autowired
     private ActorRepository actorRepository;
 
+    @Transactional(readOnly = true)
     public Iterable<Actor> getAll() {
         return actorRepository.findAll();
     }
