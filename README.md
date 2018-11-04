@@ -30,131 +30,163 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 
 <table align="center" width="100%">
     <tr align="center" width="100%">
-        <th width="25%">TÍPUS</th>
-        <th width="25%">SZEREPKÖR</th>
-        <th width="25%">TÁBLA</th>
-        <th width="25%">LEÍRÁS</th>
+        <th width="20%">TÍPUS</th>
+        <th width="20%">URL</th>
+        <th width="20%">SZEREPKÖR</th>
+        <th width="20%">TÁBLA</th>
+        <th width="20%">LEÍRÁS</th>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">POST</td>
-        <td align="center" width="25%">Látogató</td>
-        <td align="center" width="25%">ACTOR</td>
-        <td align="left" width="25%">regisztráció</td>
+        <td align="center" width="20%">POST</td>
+        <td align="center" width="20%">/api/actor/register</td>
+        <td align="center" width="20%">Látogató</td>
+        <td align="center" width="20%">ACTOR</td>
+        <td align="left" width="20%">regisztráció</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">lekéri az összes tételét</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/item/all</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">lekéri az összes tételét</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">kettő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/item/deadline</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">kettő fizetési határidő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">egy partner azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/item/completion</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">kettő teljesítési határidő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">POST</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">tételt hozzáad</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/item/byPartner/{partnerId}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">egy partner azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">PUT</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">tételt módosít</td>
+        <td align="center" width="20%">POST</td>
+        <td align="center" width="20%">/api/item/add</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">tételt hozzáad</td>
+    </tr>
+    <tr align="center" width="100%">
+        <td align="center" width="20%">PUT</td>
+        <td align="center" width="20%">/api/item/update/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">tételt módosít</td>
     </tr>    
     <tr align="center" width="100%">
-        <td align="center" width="25%">DELETE</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEM</td>
-        <td align="left" width="25%">tételt töröl</td>
+        <td align="center" width="20%">DELETE</td>
+        <td align="center" width="20%">/api/item/delete/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">ITEM</td>
+        <td align="left" width="20%">tételt töröl</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNER</td>
-        <td align="left" width="25%">lekéri az összes partnerét</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/partner/all</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">PARTNER</td>
+        <td align="left" width="20%">lekéri az összes partnerét</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">POST</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNER</td>
-        <td align="left" width="25%">partnert hozzáad</td>
+        <td align="center" width="20%">POST</td>
+        <td align="center" width="20%">/api/partner/add</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">PARTNER</td>
+        <td align="left" width="20%">partnert hozzáad</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">PUT</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNER</td>
-        <td align="left" width="25%">partnert módosít</td>
+        <td align="center" width="20%">PUT</td>
+        <td align="center" width="20%">/api/partner/update/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">PARTNER</td>
+        <td align="left" width="20%">partnert módosít</td>
     </tr>    
     <tr align="center" width="100%">
-        <td align="center" width="25%">DELETE</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNER</td>
-        <td align="left" width="25%">partnert töröl</td>
+        <td align="center" width="20%">DELETE</td>
+        <td align="center" width="20%">/api/partner/delete/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">PARTNER</td>
+        <td align="left" width="20%">partnert töröl</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORY</td>
-        <td align="left" width="25%">lekéri az összes kategóriát</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/category/all</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">CATEGORY</td>
+        <td align="left" width="20%">lekéri az összes kategóriát</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">POST</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORY</td>
-        <td align="left" width="25%">kategóriát hozzáad</td>
+        <td align="center" width="20%">POST</td>
+        <td align="center" width="20%">/api/category/add</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">CATEGORY</td>
+        <td align="left" width="20%">kategóriát hozzáad</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">PUT</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORY</td>
-        <td align="left" width="25%">kategóriát módosít</td>
+        <td align="center" width="20%">PUT</td>
+        <td align="center" width="20%">/api/category/update/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">CATEGORY</td>
+        <td align="left" width="20%">kategóriát módosít</td>
     </tr>    
     <tr align="center" width="100%">
-        <td align="center" width="25%">DELETE</td>
-        <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORY</td>
-        <td align="left" width="25%">kategóriát töröl</td>
+        <td align="center" width="20%">DELETE</td>
+        <td align="center" width="20%">/api/category/delete/{id}</td>
+        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">CATEGORY</td>
+        <td align="left" width="20%">kategóriát töröl</td>
     </tr>
         <tr align="center" width="100%">
-        <td align="center" width="25%">GET</td>
-        <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">ACTOR</td>
-        <td align="left" width="25%">lekéri az összes felhasználót</td>
+        <td align="center" width="20%">GET</td>
+        <td align="center" width="20%">/api/actor/all</td>
+        <td align="center" width="20%">Admin</td>
+        <td align="center" width="20%">ACTOR</td>
+        <td align="left" width="20%">lekéri az összes felhasználót</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">POST</td>
-        <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">ACTOR</td>
-        <td align="left" width="25%">felhasználót hozzáad, nem regisztráción keresztül</td>
+        <td align="center" width="20%">POST</td>
+        <td align="center" width="20%">/api/actor/add</td>
+        <td align="center" width="20%">Admin</td>
+        <td align="center" width="20%">ACTOR</td>
+        <td align="left" width="20%">felhasználót hozzáad, nem regisztráción keresztül</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="25%">PUT</td>
-        <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">ACTOR</td>
-        <td align="left" width="25%">felhasználót módosít</td>
+        <td align="center" width="20%">PUT</td>
+        <td align="center" width="20%">/api/actor/update/{id}</td>
+        <td align="center" width="20%">Admin</td>
+        <td align="center" width="20%">ACTOR</td>
+        <td align="left" width="20%">felhasználót módosít</td>
     </tr>    
     <tr align="center" width="100%">
-        <td align="center" width="25%">DELETE</td>
-        <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">ACTOR</td>
-        <td align="left" width="25%">felhasználót töröl</td>
+        <td align="center" width="20%">DELETE</td>
+        <td align="center" width="20%">/api/actor/delete/{id}</td>
+        <td align="center" width="20%">Admin</td>
+        <td align="center" width="20%">ACTOR</td>
+        <td align="left" width="20%">felhasználót töröl</td>
     </tr>
 </table>
 
 Az Admin természetesen az összes felhasználói végpontot is eléri.
 
 ## Adatbázis terv:
+![erd](https://user-images.githubusercontent.com/17639500/47970635-80731580-e088-11e8-9735-4f35f8f5718c.PNG)
 
+## Szekvencia diagram:
+### Regisztráció
+![a](https://user-images.githubusercontent.com/36520783/47970949-3d1aa600-e08c-11e8-8773-7870571261f0.PNG)
+<!---
 <table align="center" width="100%">
     <th colspan="3" width="100%">ACTOR</th>
     <tr align="center" width="100%">
@@ -298,7 +330,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">kategória megnevezése</td>
     </tr>
 </table>
-
+--->
 ## Szerzők:
 
 + **Kertész Kászon**
