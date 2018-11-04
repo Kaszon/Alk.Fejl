@@ -21,8 +21,9 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
+
     @GetMapping(value = "/all")
-    public ResponseEntity<Iterable<Actor>> getActors() {
+    public ResponseEntity<Iterable<Actor>> getActors() {        
         Iterable<Actor> actors = actorService.getAll();
         return ResponseEntity.ok(actors);
     }
