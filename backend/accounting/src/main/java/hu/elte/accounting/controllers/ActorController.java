@@ -21,23 +21,27 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
-
     @GetMapping(value = "/all")
-    public ResponseEntity<Iterable<Actor>> getActors() {        
+    public ResponseEntity<Iterable<Actor>> getActors() {
         Iterable<Actor> actors = actorService.getAll();
         return ResponseEntity.ok(actors);
     }
-    
+
     @PostMapping(value = "/register")
     public ResponseEntity<Actor> registerNewActor(@RequestBody Actor actor) {
-        return actorService.register(actor);        
+        return actorService.register(actor);
     }
-    
+
+    @PostMapping(value = "/add")
+    public ResponseEntity<Actor> addNewActor(@RequestBody Actor actor) {
+        return actorService.register(actor);
+    }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<Actor> updateActor(@PathVariable Integer id, @RequestBody Actor actor) {
         return actorService.updateActor(id, actor);
     }
-    
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Actor> delete(@PathVariable Integer id) {
         return actorService.deleteActor(id);
