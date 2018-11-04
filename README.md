@@ -186,6 +186,9 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 ## Szekvencia diagram:
 ### Regisztráció
 ![a](https://user-images.githubusercontent.com/36520783/47970949-3d1aa600-e08c-11e8-8773-7870571261f0.PNG)
+
+## Könyvtár struktúra:
+![projecttree](https://user-images.githubusercontent.com/36520783/47971152-ebbfe600-e08e-11e8-883d-4060ffbe83c4.PNG)
 <!---
 <table align="center" width="100%">
     <th colspan="3" width="100%">ACTOR</th>
