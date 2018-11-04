@@ -16,11 +16,7 @@ public class ActorController {
     private ActorRepository actorRepository;
     
     @GetMapping("")
-    public Iterable<Actor> getAll() {
-        
-    	return actorRepository.findAll();
-    	
+    public Iterable<Actor> getAll() {        
+    	return actorRepository.findAll();    	
     }
-    
-
 }
