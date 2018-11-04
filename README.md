@@ -38,115 +38,115 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Látogató</td>
-        <td align="center" width="25%">USERS</td>
+        <td align="center" width="25%">ACTOR</td>
         <td align="left" width="25%">regisztráció</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">lekéri az összes tételét</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">kettő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">egy partner azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">tételt hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">tételt módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">ITEMS</td>
+        <td align="center" width="25%">ITEM</td>
         <td align="left" width="25%">tételt töröl</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNERS</td>
+        <td align="center" width="25%">PARTNER</td>
         <td align="left" width="25%">lekéri az összes partnerét</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNERS</td>
+        <td align="center" width="25%">PARTNER</td>
         <td align="left" width="25%">partnert hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNERS</td>
+        <td align="center" width="25%">PARTNER</td>
         <td align="left" width="25%">partnert módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">PARTNERS</td>
+        <td align="center" width="25%">PARTNER</td>
         <td align="left" width="25%">partnert töröl</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORIES</td>
+        <td align="center" width="25%">CATEGORY</td>
         <td align="left" width="25%">lekéri az összes kategóriát</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORIES</td>
+        <td align="center" width="25%">CATEGORY</td>
         <td align="left" width="25%">kategóriát hozzáad</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORIES</td>
+        <td align="center" width="25%">CATEGORY</td>
         <td align="left" width="25%">kategóriát módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Felhasználó</td>
-        <td align="center" width="25%">CATEGORIES</td>
+        <td align="center" width="25%">CATEGORY</td>
         <td align="left" width="25%">kategóriát töröl</td>
     </tr>
         <tr align="center" width="100%">
         <td align="center" width="25%">GET</td>
         <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">USERS</td>
+        <td align="center" width="25%">ACTOR</td>
         <td align="left" width="25%">lekéri az összes felhasználót</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">POST</td>
         <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">USERS</td>
+        <td align="center" width="25%">ACTOR</td>
         <td align="left" width="25%">felhasználót hozzáad, nem regisztráción keresztül</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="25%">PUT</td>
         <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">USERS</td>
+        <td align="center" width="25%">ACTOR</td>
         <td align="left" width="25%">felhasználót módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="25%">DELETE</td>
         <td align="center" width="25%">Admin</td>
-        <td align="center" width="25%">USERS</td>
+        <td align="center" width="25%">ACTOR</td>
         <td align="left" width="25%">felhasználót töröl</td>
     </tr>
 </table>
@@ -156,7 +156,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 ## Adatbázis terv:
 
 <table align="center" width="100%">
-    <th colspan="3" width="100%">USERS</th>
+    <th colspan="3" width="100%">ACTOR</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
         <th width="33%">TÍPUS</th>
@@ -194,7 +194,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 </table>
 
 <table align="center" width="100%">
-    <th colspan="3" width="100%">PARTNERS</th>
+    <th colspan="3" width="100%">PARTNER</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
         <th width="33%">TÍPUS</th>
@@ -227,7 +227,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 </table>
 
 <table align="center" width="100%">
-    <th colspan="3" width="100%">ITEMS</th>
+    <th colspan="3" width="100%">ITEM</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
         <th width="33%">TÍPUS</th>
@@ -281,7 +281,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
 </table>
 
 <table align="center" width="100%">
-    <th colspan="3" width="100%">CATEGORIES</th>
+    <th colspan="3" width="100%">CATEGORY</th>
     <tr align="center" width="100%">
         <th width="33%">ATTRIBÚTUM</th>
         <th width="33%">TÍPUS</th>
