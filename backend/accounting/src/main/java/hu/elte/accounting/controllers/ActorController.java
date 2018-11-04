@@ -19,4 +19,7 @@ public class ActorController {
     public Iterable<Actor> getAll() {        
     	return actorRepository.findAll();    	
     }
+    
+    
+    
 }
