@@ -168,12 +168,12 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">felhasználó azonosítója (PK)</td>
     <tr align="center" width="100%">
         <td align="center" width="33%">FIRST_NAME</td>
-        <td align="center" width="33%">VARCHAR2(15)</td>
+        <td align="center" width="33%">VARCHAR2(30)</td>
         <td align="justify" width="33%">felhasználó keresztneve</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">LAST_NAME</td>
-        <td align="center" width="33%">VARCHAR2(15)</td>
+        <td align="center" width="33%">VARCHAR2(30)</td>
         <td align="justify" width="33%">felhasználó vezetékneve</td>
     </tr>
     <tr align="center" width="100%">
@@ -188,7 +188,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">BALANCE</td>
-        <td align="center" width="33%">VARCHAR2(50)</td>
+        <td align="center" width="33%">BIGINT</td>
         <td align="justify" width="33%">felhasználó egyenlege</td>
     </tr>
 </table>
@@ -239,8 +239,8 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">tétel azonosítója (PK)</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="33%">USER</td>
-        <td align="center" width="33%">VARCHAR2(15)</td>
+        <td align="center" width="33%">ACTOR_ID</td>
+        <td align="center" width="33%">BIGINT</td>
         <td align="justify" width="33%">tulajdonos azonosítója (FK)</td>
     </tr>
     <tr align="center" width="100%">
@@ -255,12 +255,12 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">PARTNER_ID</td>
-        <td align="center" width="33%">SMALLINT</td>
+        <td align="center" width="33%">BIGINT</td>
         <td align="justify" width="33%">a partner azonosítója</td>
     </tr>
     <tr align="center" width="100%">
         <td align="center" width="33%">AMOUNT</td>
-        <td align="center" width="33%">SMALLINT</td>
+        <td align="center" width="33%">BIGINT</td>
         <td align="justify" width="33%">a tétel összege</td>
     </tr>
     <tr align="center" width="100%">
@@ -274,7 +274,7 @@ Az Admin természetesen az összes felhasználói végpontot is eléri.
         <td align="justify" width="33%">a tétel teljesítésének ideje</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="33%">COMMENT</td>
+        <td align="center" width="33%">DESCRIPTION</td>
         <td align="center" width="33%">VARCHAR2(50)</td>
         <td align="justify" width="33%">a tételhez tartozó megjegyzés</td>
     </tr>
