@@ -1,12 +1,18 @@
 package hu.elte.accounting.entities;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -38,5 +44,9 @@ public class Actor implements Serializable {
 
     @Column
     @Min(0)
-    private Integer balance;       
+    private Integer balance;        
+    
+    @OneToMany(mappedBy = "actor")
+    @JsonIgnore
+    private List<Item> items;
 }

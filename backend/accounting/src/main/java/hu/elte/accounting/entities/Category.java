@@ -1,12 +1,16 @@
 package hu.elte.accounting.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,5 +30,9 @@ public class Category implements Serializable {
     private Integer id;
 
     @Column(columnDefinition = "VARCHAR2(30) NOT NULL")
-    private String category;
+    private String name;
+    
+    @ManyToMany(mappedBy ="categories")
+    @JsonIgnore
+    private List<Item> items;
 }
