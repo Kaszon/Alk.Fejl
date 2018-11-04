@@ -24,7 +24,7 @@ public class Partner implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(columnDefinition = "VARCHAR2(60) NOT NULL")
     private String name;
@@ -36,5 +36,5 @@ public class Partner implements Serializable {
     private String address;
 
     @Column(columnDefinition = "VARCHAR2(11) NOT NULL")
-    private Integer taxNum;
+    private String taxNum;
 }

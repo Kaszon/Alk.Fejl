@@ -26,10 +26,10 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column
-    private Long actorId;
+    private Integer actorId;
 
     @Column(columnDefinition = "VARCHAR2(30) NOT NULL")
     private String category;
@@ -38,7 +38,7 @@ public class Item implements Serializable {
     private String name;
 
     @Column(columnDefinition = "VARCHAR2(50) NOT NULL")
-    private Long partnerId;
+    private Integer partnerId;
 
     @Column
     @Min(0)

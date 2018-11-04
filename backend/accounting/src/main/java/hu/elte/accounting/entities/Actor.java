@@ -22,7 +22,7 @@ public class Actor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(columnDefinition = "VARCHAR2(30) NOT NULL")
     private String firstName;
