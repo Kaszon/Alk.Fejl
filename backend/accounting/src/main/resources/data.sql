@@ -1,1 +1,0 @@
-INSERT INTO `ACTOR` (`FIRST_NAME`, `LAST_NAME`, `PASSWORD`, `EMAIL`, `BALANCE`) VALUES (`Teszt`,`Elek`, `jelszo`, `teszt@proba.hu`, 5000);
