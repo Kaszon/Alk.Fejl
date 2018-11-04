@@ -154,7 +154,7 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 Az Admin természetesen az összes felhasználói végpontot is eléri.
 
 ## Adatbázis terv:
-
+![erd](https://user-images.githubusercontent.com/17639500/47970635-80731580-e088-11e8-9735-4f35f8f5718c.PNG)
 <!---
 <table align="center" width="100%">
     <th colspan="3" width="100%">ACTOR</th>
