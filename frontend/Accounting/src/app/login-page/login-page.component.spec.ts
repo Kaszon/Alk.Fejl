@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginPageComponent } from './login-page.component';
+import { MatError, MatHint, MatFormField } from '@angular/material';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
@@ -8,7 +9,12 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPageComponent ]
+      declarations: [ LoginPageComponent ],
+      imports: [
+        MatFormField,
+        MatHint,
+        MatError
+      ]
     })
     .compileComponents();
   }));
