@@ -7,21 +7,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainPageComponent } from './main-page/main-page.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { IncomePageComponent } from './income-page/income-page.component';
-import { ExpensePageComponent } from './expense-page/expense-page.component';
 import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
+import { FinancePageComponent } from './finance-page/finance-page.component';
+import { FinanceTableComponent } from './finance-table/finance-table.component';
 
 
 const appRoutes: Routes = [
-  { path: 'profile-page', component: ProfilePageComponent },
-  { path: 'income-page', component: IncomePageComponent },
-  { path: 'expense-page', component: ExpensePageComponent },
+  { path: 'profile-page', component: ProfilePageComponent },  
+  { path: 'finance-page', component: FinancePageComponent },
   { path: 'partner-page', component: PartnerPageComponent },
   { path: 'login-page', component: LoginPageComponent }
 ];
@@ -31,12 +30,12 @@ const appRoutes: Routes = [
     AppComponent,
     MainPageComponent,
     ProfilePageComponent,
-    IncomePageComponent,
-    ExpensePageComponent,
+    FinancePageComponent,
     PartnerPageComponent,
     LoginPageComponent,
     SidebarComponent,
-    DetailsComponent
+    DetailsComponent,    
+    FinancePageComponent, FinanceTableComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +48,10 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
