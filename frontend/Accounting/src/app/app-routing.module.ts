@@ -8,7 +8,7 @@ import { DetailsComponent } from './details/details.component';
 import { FinancePageComponent } from './finance-page/finance-page.component';
 
 const routes: Routes = [
-  { path: '', component: MainPageComponent },  // MainPage 
+  { path: '', component: MainPageComponent },
   { path: 'partner-page', component: PartnerPageComponent },
   { path: 'profile-page', component: ProfilePageComponent },
   { path: 'finance-page', component: FinancePageComponent },
