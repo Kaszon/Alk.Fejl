@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PartnerDataService } from './partner-data.service';
+import { PartnerDataService } from './data.service';
 
 describe('PartnerDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

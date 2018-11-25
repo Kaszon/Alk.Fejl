@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PartnerDataService } from '../partner-data.service';
+import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,11 +12,11 @@ export class PartnerPageComponent implements OnInit {
   partners$: Object;
 
 
-  constructor(private data: PartnerDataService) { }
+  constructor(private data: DataService) { }
 
 
   ngOnInit() {
-    this.data.getUsers().subscribe(
+    this.data.getPartners().subscribe(
       data => this.partners$ = data 
     );
   }

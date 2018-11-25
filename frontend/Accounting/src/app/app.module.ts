@@ -15,6 +15,7 @@ import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailsComponent } from './details/details.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     ExpensePageComponent,
     PartnerPageComponent,
     LoginPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
