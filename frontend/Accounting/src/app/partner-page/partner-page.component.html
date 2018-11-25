@@ -1,3 +1,12 @@
-<p>
-  partner-page works!
-</p>
+<h1>Partners</h1>
+
+<ul>
+  <li *ngFor="let partner of partners$">
+    <a routerLink="/details/{{partner.id}}">{{ partner.name }}</a>
+
+    <ul>
+      <li>{{ partner.email }}</li>
+      <li><a href="http://{{ partner.website }}">{{ partner.website }}</a></li>
+    </ul>
+  </li>
+</ul>

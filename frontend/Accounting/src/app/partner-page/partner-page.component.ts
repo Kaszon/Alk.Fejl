@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PartnerDataService } from '../partner-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-partner-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartnerPageComponent implements OnInit {
 
-  constructor() { }
+  partners$: Object;
+
+
+  constructor(private data: PartnerDataService) { }
+
 
   ngOnInit() {
+    this.data.getUsers().subscribe(
+      data => this.partners$ = data 
+    );
   }
 
 }

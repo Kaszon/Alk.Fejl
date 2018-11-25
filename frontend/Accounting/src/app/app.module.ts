@@ -13,6 +13,9 @@ import { IncomePageComponent } from './income-page/income-page.component';
 import { ExpensePageComponent } from './expense-page/expense-page.component';
 import { PartnerPageComponent } from './partner-page/partner-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const appRoutes: Routes = [
   { path: 'profile-page', component: ProfilePageComponent },
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
     IncomePageComponent,
     ExpensePageComponent,
     PartnerPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
