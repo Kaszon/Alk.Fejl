@@ -6,7 +6,6 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface FinanceTableItem {
   id: number;
-  actorName: string;
   partnerName: string;
   amount: number;
   date_of_deadline:string;
@@ -16,12 +15,12 @@ export interface FinanceTableItem {
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: FinanceTableItem[] = [
-  {id: 1, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-  {id: 2, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-  {id: 3, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-  {id: 4, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-  {id: 5, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-  {id: 6, actorName: 'actorName', partnerName: 'partnerName', amount: 5000, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'}
+  {id: 1, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
+  {id: 2, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
+  {id: 3, partnerName: 'name', amount: -100, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
+  {id: 4, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
+  {id: 5, partnerName: 'name', amount: -100, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
+  {id: 6, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'}
 ];
 
 /**
@@ -86,7 +85,6 @@ export class FinanceTableDataSource extends DataSource<FinanceTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'id': return compare(+a.id, +b.id, isAsc);
-        case 'actorName': return compare(a.actorName, b.actorName, isAsc);
         case 'amount': return compare(+a.amount, +b.amount, isAsc); //+ converts it to number
         default: return 0;
       }

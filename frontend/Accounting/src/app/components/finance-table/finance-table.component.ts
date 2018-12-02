@@ -12,7 +12,7 @@ export class FinanceTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: FinanceTableDataSource;
 
-  displayedColumns = ['id', 'actorName', 'partnerName', 'amount', 'date_of_deadline', 'date_of_completion','description'];
+  displayedColumns = ['id','partnerName', 'amount', 'date_of_deadline', 'date_of_completion','description'];
 
   ngOnInit() {
     this.dataSource = new FinanceTableDataSource(this.paginator, this.sort);
