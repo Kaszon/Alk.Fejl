@@ -5,11 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -43,9 +44,16 @@ public class Actor implements Serializable {
     private String email;
 
     @Column
-    @Min(0)
-    private Integer balance;        
-    
+    private Integer balance;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public enum Role {
+        ROLE_USER, ROLE_ADMIN
+    }
+
     @OneToMany(mappedBy = "actor")
     @JsonIgnore
     private List<Item> items;

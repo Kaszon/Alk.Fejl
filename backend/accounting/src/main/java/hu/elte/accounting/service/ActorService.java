@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,8 @@ public class ActorService {
     
     @Autowired
     private ActorRepository actorRepository;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
     public Iterable<Actor> getAll() {
@@ -28,8 +31,8 @@ public class ActorService {
             return ResponseEntity.badRequest().build();
         }
         actor.setId(null);
-//        actor.setPassword(passwordEncoder.encode(actor.getPassword()));
-//        actor.setRole(User.Role.ROLE_USER);
+        actor.setPassword(passwordEncoder.encode(actor.getPassword()));
+        actor.setRole(Actor.Role.ROLE_USER);
         return ResponseEntity.ok(actorRepository.save(actor));
     }
 

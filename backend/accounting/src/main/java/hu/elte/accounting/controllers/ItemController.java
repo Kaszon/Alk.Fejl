@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping(value = "/all")
+    //@Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getActors() {
         Iterable<Item> items = itemService.getAll();
         return ResponseEntity.ok(items);
