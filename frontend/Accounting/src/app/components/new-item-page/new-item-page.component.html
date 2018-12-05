@@ -42,6 +42,6 @@
     <br>
     <mat-checkbox class="formCheckbox" formControlName="agree">Biztos vagy benne?</mat-checkbox>
     <br>
-    <button mat-raised-button [disabled]="itemForm.invalid" color="primary">Küldés</button>
+    <button mat-raised-button [disabled]="itemForm.invalid" color="primary" (click)="insertNewItem()">Küldés</button>
 
 </form>

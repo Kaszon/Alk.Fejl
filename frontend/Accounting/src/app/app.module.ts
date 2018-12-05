@@ -9,7 +9,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatSelectModule, MatCheckbox, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
-import { MainPageComponent } from './components/main-page/main-page.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FinancePageComponent } from './components/finance-page/finance-page.component';
 import { PartnerPageComponent } from './components/partner-page/partner-page.component';
@@ -20,19 +19,16 @@ import { FinanceTableComponent } from './components/finance-table/finance-table.
 import { NewItemPageComponent } from './components/new-item-page/new-item-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewPartnerPageComponent } from './components/new-partner-page/new-partner-page.component';
+import { CanActivateViaAuthGuard } from './routeguards/authentication.guard';
+import { AuthenticationService } from './services/backend-services/authentication.service';
+import { DataService } from './services/backend-services/data.service';
+import { Http, HttpModule } from '@angular/http';
+import { FinanceTableService } from './services/backend-services/finance.table.service';
 
-
-const appRoutes: Routes = [
-  { path: 'profile-page', component: ProfilePageComponent },  
-  { path: 'finance-page', component: FinancePageComponent },
-  { path: 'partner-page', component: PartnerPageComponent },
-  { path: 'login-page', component: LoginPageComponent }
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
     ProfilePageComponent,
     FinancePageComponent,
     PartnerPageComponent,
@@ -48,13 +44,12 @@ const appRoutes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    RouterModule.forRoot(appRoutes),
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
-    HttpClientModule,
+    MatListModule,    
+    HttpModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -68,7 +63,7 @@ const appRoutes: Routes = [
     MatNativeDateModule
     
   ],
-  providers: [],
+  providers: [DataService,FinanceTableService], // ezeket lehet beinjectálni (singleton)
   bootstrap: [AppComponent]
 })
 export class AppModule { }

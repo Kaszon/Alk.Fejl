@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FinanceTableItem} from '../../interfaces/finance.table.item'
+import { FinanceTableService } from 'src/app/services/backend-services/finance.table.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-item-page',
@@ -8,9 +11,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class NewItemPageComponent implements OnInit {
 
-  itemForm : FormGroup;
+  itemForm : FormGroup;  
+  finance : FinanceTableItem;
 
-  constructor(private fb : FormBuilder) { }
+  constructor(
+    private fb : FormBuilder,
+    private financeService : FinanceTableService,
+    private router : Router) { }
 
   ngOnInit() {    
     this.itemForm = this.fb.group({
@@ -61,5 +68,20 @@ export class NewItemPageComponent implements OnInit {
 
   get dateOfCompletion() {
     return this.itemForm.get('dateOfCompletion')
+  }
+
+  insertNewItem() {
+      this.finance = {        
+        id : 5000,
+        partnerName: this.itemForm.get('name').value,
+        amount: this.itemForm.get('amount').value, 
+        date_of_deadline:this.itemForm.get('dateOfDeadline').value, 
+        date_of_completion : this.itemForm.get('dateOfCompletion').value, 
+        description: this.itemForm.get('description').value
+      }
+
+      this.financeService.addFinance(this.finance)
+      this.router.navigateByUrl('/finance-page')
+      
   }
 }

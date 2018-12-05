@@ -1,11 +1,6 @@
 <div class="mat-elevation-z8 finance-table">
-  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
-    </ng-container>
-    
+  <table mat-table [dataSource]="financeTableDataSource" matSort aria-label="Elements">
+   
     <!-- Partner Name Column -->
     <ng-container matColumnDef="partnerName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Partner neve</th>
@@ -15,7 +10,7 @@
     <!-- Amount Column -->
     <ng-container matColumnDef="amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Összeg</th>
-      <td mat-cell *matCellDef="let row">{{row.amount}} Ft</td>
+      <td mat-cell *matCellDef="let row" [ngClass]="{'negative' : !isPositive(row.amount), 'positive' : isPositive(row.amount) }" >{{row.amount}} Ft</td>
     </ng-container>
 
     <!-- Date of Deadline Column -->
@@ -40,6 +35,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 25, 50, 100, 250]">
+  <mat-paginator #paginator [length]="financeTableDataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 25, 50, 100, 250]">
   </mat-paginator>
 </div>

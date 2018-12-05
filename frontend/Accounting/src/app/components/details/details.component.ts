@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../../services/data.service';
+import { DataService } from '../../services/backend-services/data.service';
+import { Partner } from 'src/app/interfaces/partner.interface';
 
 @Component({
   selector: 'app-details',
@@ -9,18 +10,25 @@ import { DataService } from '../../services/data.service';
 })
 export class DetailsComponent implements OnInit {
 
-  partner$: Object;
+  partner: Partner;
+  partnerId: number;
+  hasData:boolean;
 
   constructor(private data : DataService, private route : ActivatedRoute) { 
-
-    this.route.params.subscribe(params => this.partner$ = params.id)
-
+    this.route.params.subscribe(params => {
+      this.partnerId = params.id
+      this.data.getPartner(this.partnerId).then((response: any) => {        
+        this.partner = JSON.parse(response["_body"]);      
+        this.hasData = true;
+      })
+    })
+    
   }
 
-  ngOnInit() {
-    this.data.getPartner(this.partner$).subscribe(
-      data => this.partner$ = data
-    )
+  ngOnInit() {    
+      // ha megjön akkor JSON-re alakul
+      //this.data.getPartner(this.partnerId).then((response: any) => {        
+        //this.partner = JSON.parse(response["_body"]);      
+      //})
   }
-
 }
