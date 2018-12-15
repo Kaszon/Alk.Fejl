@@ -5,6 +5,8 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hu.elte.accounting.entities.Item;
 import hu.elte.accounting.service.ItemService;
-import hu.elte.accounting.service.MyUserDetailsService;
 
 @CrossOrigin
 @RestController
@@ -31,14 +32,17 @@ public class ItemController {
     @GetMapping(value = "/all")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getActors() {
-        Iterable<Item> items = itemService.getAll();
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Iterable<Item> items = itemService.getAll(user.getUsername());
         return ResponseEntity.ok(items);
     }
 
     @GetMapping(value = "/deadline")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getBetweenDeadlines(@RequestParam Date dateFrom, @RequestParam Date dateTo) {
-        Iterable<Item> items = itemService.getBetweenDeadlines(dateFrom, dateTo);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Iterable<Item> items = itemService.getBetweenDeadlines(dateFrom, dateTo, user.getUsername());
         return ResponseEntity.ok(items);
     }
 
@@ -46,14 +50,16 @@ public class ItemController {
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getBetweenCompletions(@RequestParam Date dateFrom,
             @RequestParam Date dateTo) {
-        Iterable<Item> items = itemService.getBetweenCompletions(dateFrom, dateTo);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Iterable<Item> items = itemService.getBetweenCompletions(dateFrom, dateTo, user.getUsername());
         return ResponseEntity.ok(items);
     }
 
     @GetMapping(value = "/byPartner/{partnerId}")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getByPartnerId(@PathVariable Integer partnerId) {
-        Iterable<Item> items = itemService.getByPartnerId(partnerId);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Iterable<Item> items = itemService.getByPartnerId(partnerId, user.getUsername());
         return ResponseEntity.ok(items);
     }
 
@@ -68,7 +74,8 @@ public class ItemController {
     @PutMapping(value = "/update/{id}")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Item> updateItem(@PathVariable Integer id, @RequestBody Item item) {
-        Item result = itemService.updateItem(id, item);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Item result = itemService.updateItem(id, item, user.getUsername());
 
         if (result == null)
             return ResponseEntity.notFound().build();
