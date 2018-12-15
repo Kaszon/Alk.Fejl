@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PartnerService } from 'src/app/services/backend-services/partner.service';
+import { Router } from '@angular/router';
+import { Partner } from 'src/app/interfaces/partner.interface';
 
 @Component({
   selector: 'app-new-partner-page',
@@ -8,29 +11,33 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class NewPartnerPageComponent implements OnInit {
 
-  partnerForm : FormGroup;
+  partnerForm: FormGroup;
+  partner: Partner;
 
-  constructor(private fb : FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private partnerService: PartnerService,
+    private router: Router) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.partnerForm = this.fb.group({
       name: ['', [
         Validators.required,
-        Validators.pattern("[a-zA-ZáéíöóöőúűÁÉÍÓÖŐÚÜŰ ]+")        
+        Validators.pattern("[a-zA-ZáéíöóöőúűÁÉÍÓÖŐÚÜŰ ]+")
       ]],
       city: ['', [
         Validators.required,
-        Validators.pattern("[a-zA-ZáéíöóöőúűÁÉÍÓÖŐÚÜŰ ]+")    
+        Validators.pattern("[a-zA-ZáéíöóöőúűÁÉÍÓÖŐÚÜŰ ]+")
       ]],
-      address : ['', [
+      address: ['', [
         Validators.required
       ]],
-      taxNum : ['', [
+      taxNum: ['', [
         Validators.required,
         Validators.maxLength(11),
         Validators.minLength(11)
       ]],
-      agree : [false, [
+      agree: [false, [
         Validators.requiredTrue
       ]]
 
@@ -38,7 +45,7 @@ export class NewPartnerPageComponent implements OnInit {
   }
 
   get name() {
-      return this.partnerForm.get('name');
+    return this.partnerForm.get('name');
   }
 
   get city() {
@@ -55,5 +62,20 @@ export class NewPartnerPageComponent implements OnInit {
 
   get agree() {
     return this.partnerForm.get('agree');
+  }
+
+
+  insertNewPartner() {
+    this.partner = {
+      id: 5000,
+      name: this.partnerForm.get('name').value,
+      city: this.partnerForm.get('city').value,
+      address: this.partnerForm.get('address').value,
+      taxNum: this.partnerForm.get('taxNum').value
+    }
+
+    this.partnerService.addPartner(this.partner);
+    this.router.navigateByUrl('/partner-page')
+
   }
 }

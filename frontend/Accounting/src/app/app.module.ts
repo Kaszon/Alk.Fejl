@@ -24,6 +24,7 @@ import { AuthenticationService } from './services/backend-services/authenticatio
 import { DataService } from './services/backend-services/data.service';
 import { Http, HttpModule } from '@angular/http';
 import { FinanceTableService } from './services/backend-services/finance.table.service';
+import { PartnerService } from './services/backend-services/partner.service';
 
 
 @NgModule({
@@ -63,7 +64,7 @@ import { FinanceTableService } from './services/backend-services/finance.table.s
     MatNativeDateModule
     
   ],
-  providers: [DataService,FinanceTableService], // ezeket lehet beinjectálni (singleton)
+  providers: [DataService,FinanceTableService, PartnerService], // ezeket lehet beinjectálni (singleton)
   bootstrap: [AppComponent]
 })
 export class AppModule { }

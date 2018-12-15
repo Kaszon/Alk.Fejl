@@ -27,7 +27,7 @@
     <br>
 
     <mat-form-field class="partnerFormField">
-        <input matInput placeholder="Adószám" formControlName="taxNum">
+        <input matInput placeholder="Adószám" formControlName="taxNum" maxlength="11" minlength="11">
         <mat-error *ngIf="taxNum.invalid && taxNum.touched">
                 Az adószám megadása kötelező (11 karakterből álló számsorozat)
         </mat-error>
@@ -35,6 +35,6 @@
     </mat-form-field>
     <mat-checkbox class="formCheckbox" formControlName="agree">Biztos vagy benne?</mat-checkbox>
     <br>
-    <button mat-raised-button [disabled]="partnerForm.invalid" color="primary">Küldés</button>
+    <button mat-raised-button [disabled]="partnerForm.invalid" color="primary" (click)="insertNewPartner()">Küldés</button>
 
 </form>
