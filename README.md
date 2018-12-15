@@ -36,13 +36,6 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <th width="20%">TÁBLA</th>
         <th width="20%">LEÍRÁS</th>
     </tr>
-    <del><tr align="center" width="100%">
-        <td align="center" width="20%">POST</td>
-        <td align="center" width="20%">/api/actor/register</td>
-        <td align="center" width="20%">Látogató</td>
-        <td align="center" width="20%">ACTOR</td>
-        <td align="left" width="20%">regisztráció</td>
-    </tr></del>
     <tr align="center" width="100%">
         <td align="center" width="20%">GET</td>
         <td align="center" width="20%">/api/item/all</td>
