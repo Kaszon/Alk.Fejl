@@ -3,6 +3,7 @@ package hu.elte.accounting.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import hu.elte.accounting.entities.Actor;
 import hu.elte.accounting.entities.AuthUser;
 import hu.elte.accounting.service.ActorService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/actor")
 public class ActorController {
