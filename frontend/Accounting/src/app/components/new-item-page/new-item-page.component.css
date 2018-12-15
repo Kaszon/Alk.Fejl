@@ -1,0 +1,27 @@
+h2 {
+    text-align: center;
+    color:white;
+}
+
+button {
+    color:white;
+    margin-left:20px;
+    margin-top:20px;
+}
+
+.formCheckbox {
+    color:white;
+    margin-left: 20px;
+
+}
+
+.itemForm {
+    width: 25%;
+    margin:auto;
+    color: white;    
+}
+  
+.itemFormField {
+    width: 100%;    
+    padding:10px;
+}

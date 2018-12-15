@@ -1,0 +1,40 @@
+<h2> Új partner felvitele</h2>
+
+<form class="partnerForm" [formGroup]="partnerForm">
+    <mat-form-field class="partnerFormField">
+        <input type="text" matInput placeholder="Név" formControlName="name">
+        <mat-error *ngIf="name.invalid && name.touched">
+            Nem megfelelő a név formátuma. A név csak betűket tartalmazhat
+        </mat-error>
+        <mat-hint align="end">A név csak betűket tartalmazhat</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="partnerFormField">
+        <input matInput placeholder="Város" formControlName="city">
+        <mat-error *ngIf="city.invalid && city.touched">
+            Város megadása kötelező
+        </mat-error>
+        <mat-hint align="end">A város neve csak betűket tartalmazhat</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="partnerFormField">
+        <input matInput placeholder="Cím" formControlName="address">
+        <mat-error *ngIf="address.invalid && address.touched">
+            Cím megadása kötelező
+        </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="partnerFormField">
+        <input matInput placeholder="Adószám" formControlName="taxNum">
+        <mat-error *ngIf="taxNum.invalid && taxNum.touched">
+                Az adószám megadása kötelező (11 karakterből álló számsorozat)
+        </mat-error>
+        <mat-hint align="end">Az adószám 11 karakterből álló számsorozat (csak számokat tartalmaz)</mat-hint>
+    </mat-form-field>
+    <mat-checkbox class="formCheckbox" formControlName="agree">Biztos vagy benne?</mat-checkbox>
+    <br>
+    <button mat-raised-button [disabled]="partnerForm.invalid" color="primary">Küldés</button>
+
+</form>
