@@ -6,11 +6,13 @@ import { Http } from '@angular/http';
 @Injectable()
 export class PartnerService {
     partners: Partner[];
+    inited : boolean;
 
     constructor(private http: Http) { }  
     
     setPartners(partners : Partner[]) {
-        this.partners = partners;
+        this.partners = partners; 
+        this.inited = true;       
     }
 
     initPartners() {        
