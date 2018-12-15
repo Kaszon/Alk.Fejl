@@ -9,6 +9,11 @@ img {
     padding: 0px 0px 25px 0px;
 }
 
+h1 {
+    text-align: center;
+    color: white;
+}
+
 form {
     width: 100%;
 }

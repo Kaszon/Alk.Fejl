@@ -31,7 +31,6 @@ export class FinanceTableComponent implements OnInit, AfterViewInit {
   }
 
   isPositive(amount : number) {
-    console.log(amount > 0)
     return amount > 0
   }
 }

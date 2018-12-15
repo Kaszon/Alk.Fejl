@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataService } from '../../services/backend-services/data.service';
 import { Partner } from 'src/app/interfaces/partner.interface';
+import { PartnerService } from 'src/app/services/backend-services/partner.service';
 
 @Component({
   selector: 'app-partner-page',
@@ -11,14 +11,20 @@ export class PartnerPageComponent implements OnInit {
 
   partners: Partner[];
 
-  constructor(private data: DataService) { }
+  constructor(
+    private partnerService : PartnerService) { }
 
-  
   ngOnInit() {    
-      // ha megjön akkor JSON-re alakul
-      this.data.getPartners().then((response: any) => {
+    if(!this.partnerService.inited)  {
+      this.partnerService.initPartners().then((response: any) => {
         this.partners = JSON.parse(response["_body"]);      
+        this.partnerService.setPartners(this.partners);
       })
+      console.log("if")
+    }
+    else {
+      this.partners = this.partnerService.getPartners();
+    }    
   }
 
 }

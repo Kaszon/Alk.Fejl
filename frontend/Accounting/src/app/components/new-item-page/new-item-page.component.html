@@ -18,7 +18,7 @@
     </mat-form-field>
 
     <mat-form-field class="itemFormField">
-        <input matInput [matDatepicker]="dateDeadlinePicker" placeholder="Válassz határidőt" [min]="minDate" [max]="maxDate"
+        <input matInput [matDatepicker]="dateDeadlinePicker"   placeholder="Válassz határidőt" [min]="minDate" [max]="maxDate"
             formControlName="dateOfDeadline">
         <mat-datepicker-toggle matSuffix [for]="dateDeadlinePicker"></mat-datepicker-toggle>
         <mat-datepicker #dateDeadlinePicker></mat-datepicker>
@@ -26,7 +26,7 @@
 
     <br>
     <mat-form-field class="itemFormField">
-        <input matInput [matDatepicker]="dateCompletionPicker" placeholder="Válassz teljesítési időt" [min]="minDate" [max]="maxDate"
+        <input matInput [matDatepicker]="dateCompletionPicker"  placeholder="Válassz teljesítési időt" [min]="minDate" [max]="maxDate"
             formControlName="dateOfCompletion">
         <mat-datepicker-toggle matSuffix [for]="dateCompletionPicker"></mat-datepicker-toggle>
         <mat-datepicker #dateCompletionPicker></mat-datepicker>
