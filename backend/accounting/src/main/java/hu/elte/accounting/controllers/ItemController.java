@@ -26,31 +26,36 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping(value = "/all")
-    //@Secured({ "ROLE_USER", "ROLE_ADMIN" })
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getActors() {
         Iterable<Item> items = itemService.getAll();
         return ResponseEntity.ok(items);
     }
 
     @GetMapping(value = "/deadline")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getBetweenDeadlines(@RequestParam Date dateFrom, @RequestParam Date dateTo) {
         Iterable<Item> items = itemService.getBetweenDeadlines(dateFrom, dateTo);
         return ResponseEntity.ok(items);
     }
 
     @GetMapping(value = "/completion")
-    public ResponseEntity<Iterable<Item>> getBetweenCompletions(@RequestParam Date dateFrom, @RequestParam Date dateTo) {
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
+    public ResponseEntity<Iterable<Item>> getBetweenCompletions(@RequestParam Date dateFrom,
+            @RequestParam Date dateTo) {
         Iterable<Item> items = itemService.getBetweenCompletions(dateFrom, dateTo);
         return ResponseEntity.ok(items);
     }
 
     @GetMapping(value = "/byPartner/{partnerId}")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Iterable<Item>> getByPartnerId(@PathVariable Integer partnerId) {
         Iterable<Item> items = itemService.getByPartnerId(partnerId);
         return ResponseEntity.ok(items);
     }
 
     @PostMapping(value = "/add")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Item> addItem(@RequestBody Item item) {
         item.setId(null);
         itemService.addItem(item);
@@ -58,21 +63,23 @@ public class ItemController {
     }
 
     @PutMapping(value = "/update/{id}")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Item> updateItem(@PathVariable Integer id, @RequestBody Item item) {
         Item result = itemService.updateItem(id, item);
-        
+
         if (result == null)
             return ResponseEntity.notFound().build();
-        
+
         return ResponseEntity.ok(result);
     }
 
     @DeleteMapping(value = "/delete/{id}")
+    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
     public ResponseEntity<Item> deleteItem(@PathVariable Integer id) {
         Item result = itemService.deleteItem(id);
         if (result == null)
             return ResponseEntity.notFound().build();
-        
+
         return ResponseEntity.ok().build();
     }
 

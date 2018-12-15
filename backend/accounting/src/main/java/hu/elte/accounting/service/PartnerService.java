@@ -9,18 +9,21 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import hu.elte.accounting.entities.Partner;
+import hu.elte.accounting.repositories.ItemRepository;
 import hu.elte.accounting.repositories.PartnerRepository;
 
 @Service
 public class PartnerService {
     @Autowired
     private PartnerRepository partnerRepository;
-    
+    @Autowired
+    private ItemRepository itemRepository;
+
     @Transactional(readOnly = true)
     public Iterable<Partner> all() {
         return partnerRepository.findAll();
     }
-    
+
     @Transactional
     public ResponseEntity<Partner> addPartner(@RequestBody Partner partner) {
         Optional<Partner> oPartner = partnerRepository.findByName(partner.getName());
@@ -30,7 +33,7 @@ public class PartnerService {
         partner.setId(null);
         return ResponseEntity.ok(partnerRepository.save(partner));
     }
-    
+
     @Transactional
     public ResponseEntity<Partner> updatePartner(Integer id, Partner partner) {
         Optional<Partner> oPartner = partnerRepository.findById(id);
@@ -40,13 +43,14 @@ public class PartnerService {
         partner.setId(id);
         return ResponseEntity.ok(partnerRepository.save(partner));
     }
-    
+
     @Transactional
     public ResponseEntity<Partner> deletePartner(Integer id) {
         Optional<Partner> oPartner = partnerRepository.findById(id);
         if (!oPartner.isPresent()) {
-            return ResponseEntity.notFound().build();   
-        }            
+            return ResponseEntity.notFound().build();
+        }
+        itemRepository.findByPartnerId(id).forEach(item -> itemRepository.delete(item));
         partnerRepository.delete(oPartner.get());
         return ResponseEntity.ok().build();
     }
