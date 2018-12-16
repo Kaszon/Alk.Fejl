@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
   }
 
   logOutUser() {
-    this.authService.logOutUser()
+    this.authService.logout()
   }
   
 

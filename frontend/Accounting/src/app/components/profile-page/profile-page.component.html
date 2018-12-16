@@ -1,9 +1,9 @@
 <h1>Adatlap</h1>
 <img src="assets/male.png" width="20%">
 <div class="ul-container">
-<ul>
-  <li><strong>Név: </strong> {{name}}</li>
-  <li><strong>Email: </strong> {{email}}</li>
-  <li><strong>Egyenleg</strong> {{balance + " Ft"}}</li>
+<ul *ngIf="hasData">
+  <li><strong>Név: </strong> {{actor.firstName}} {{actor.lastName}} </li>
+  <li><strong>Email: </strong> {{actor.email}}</li>
+  <li><strong>Egyenleg</strong> {{actor.balance + " Ft"}}</li>
 </ul>
 </div>

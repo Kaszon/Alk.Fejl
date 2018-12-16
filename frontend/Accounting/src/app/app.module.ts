@@ -7,24 +7,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatSelectModule, MatCheckbox, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
-
-import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { FinancePageComponent } from './components/finance-page/finance-page.component';
 import { PartnerPageComponent } from './components/partner-page/partner-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
-import { DetailsComponent } from './components/details/details.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FinanceTableComponent } from './components/finance-table/finance-table.component';
 import { NewItemPageComponent } from './components/new-item-page/new-item-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewPartnerPageComponent } from './components/new-partner-page/new-partner-page.component';
-import { CanActivateViaAuthGuard } from './routeguards/authentication.guard';
-import { AuthenticationService } from './services/backend-services/authentication.service';
-import { DataService } from './services/backend-services/data.service';
-import { Http, HttpModule } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { FinanceTableService } from './services/backend-services/finance.table.service';
 import { PartnerService } from './services/backend-services/partner.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,7 +29,6 @@ import { PartnerService } from './services/backend-services/partner.service';
     FinancePageComponent,
     PartnerPageComponent,
     LoginPageComponent,
-    DetailsComponent,
     SidebarComponent,
     FinanceTableComponent,
     NewItemPageComponent,
@@ -50,7 +44,6 @@ import { PartnerService } from './services/backend-services/partner.service';
     MatSidenavModule,
     MatIconModule,
     MatListModule,    
-    HttpModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
@@ -61,10 +54,13 @@ import { PartnerService } from './services/backend-services/partner.service';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
+    
+    
     
   ],
-  providers: [DataService,FinanceTableService, PartnerService], // ezeket lehet beinjectálni (singleton)
+  providers: [FinanceTableService, PartnerService], // ezeket lehet beinjectálni (singleton)
   bootstrap: [AppComponent]
 })
 export class AppModule { }

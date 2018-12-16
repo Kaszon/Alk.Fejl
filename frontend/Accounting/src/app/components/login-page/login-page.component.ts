@@ -9,22 +9,15 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit,OnDestroy {
+export class LoginPageComponent implements OnInit {
 
   loginForm : FormGroup;
-  hasActiveUser : boolean
-  authServiceSubscription : Subscription
 
   constructor(private fb : FormBuilder, 
               private authService : AuthenticationService,
               private router : Router) { }
 
-  ngOnInit() { 
-    this.authServiceSubscription =
-    this.authService.getHasActiveUser().subscribe((hasActiveUser : boolean ) => {
-        this.hasActiveUser = hasActiveUser
-    })
-    
+  ngOnInit() {     
     this.loginForm = this.fb.group({      
       email: ['', [
         Validators.required,
@@ -36,10 +29,6 @@ export class LoginPageComponent implements OnInit,OnDestroy {
         });
   }
 
-  ngOnDestroy() {
-    this.authServiceSubscription.unsubscribe()
-  }
-
   get email() {
       return this.loginForm.get('email');
   }
@@ -49,7 +38,10 @@ export class LoginPageComponent implements OnInit,OnDestroy {
   }
 
   loginClick() {
-    this.authService.logInUser()
-    this.router.navigateByUrl('/profile-page')
+    this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
+
+    if(sessionStorage.getItem('user') != null) {
+      this.router.navigateByUrl('/profile-page')
+    }    
   }
 }

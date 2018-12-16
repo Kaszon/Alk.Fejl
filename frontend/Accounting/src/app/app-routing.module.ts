@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { PartnerPageComponent } from './components/partner-page/partner-page.component';
-import { DetailsComponent } from './components/details/details.component';
 import { FinancePageComponent } from './components/finance-page/finance-page.component';
 import { NewItemPageComponent } from './components/new-item-page/new-item-page.component';
 import { CanActivateViaAuthGuard } from './routeguards/authentication.guard';
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path: 'finance-page', component: FinancePageComponent, canActivate: [CanActivateViaAuthGuard] },  
   { path: 'finance-page/new-item-page', component: NewItemPageComponent, canActivate: [CanActivateViaAuthGuard]}, 
   { path: 'partner-page/new-partner-page', component: NewPartnerPageComponent, canActivate: [CanActivateViaAuthGuard]}, 
-  { path: 'details/:id', component: DetailsComponent, canActivate: [CanActivateViaAuthGuard] },
   { path: '', redirectTo: 'login-page', pathMatch : 'full' } // ha tényleg nincs az url-ben megadva semmi
 ];
 

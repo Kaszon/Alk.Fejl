@@ -12,21 +12,38 @@ export class FinanceTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  financeTableDataSource : MatTableDataSource<FinanceTableItem> = null
+  financeTableDataSource : MatTableDataSource<FinanceTableItem> = new MatTableDataSource<FinanceTableItem>()
+  finances : FinanceTableItem[]
+
 
   displayedColumns = ['partnerName', 'amount', 
-                      'date_of_deadline', 'date_of_completion','description'];
+                      'dateOfDeadline', 'dateOfCompletion','description'];
 
   constructor(private financeTableService : FinanceTableService) {
 
   }
 
   ngOnInit() {
-    this.financeTableDataSource = new MatTableDataSource<FinanceTableItem>(this.financeTableService.getFinances())
+    //this.initFinancesDataSource([]);
+    if(!this.financeTableService.inited)  {
+      this.financeTableService.refreshFinances().then((response: any) => {
+        this.finances = response;   
+        this.financeTableService.setFinances(this.finances);
+        this.initFinancesDataSource(this.finances);
+      })
+    }
+    else {
+      this.finances = this.financeTableService.getFinances();
+      this.initFinancesDataSource(this.finances);
+    }      
   }
 
-  ngAfterViewInit() {
-    this.financeTableDataSource.paginator =this.paginator
+  initFinancesDataSource(finances : any) {
+    this.financeTableDataSource = new MatTableDataSource<FinanceTableItem>(finances)    
+  }
+
+  ngAfterViewInit() {   
+    this.financeTableDataSource.paginator = this.paginator
     this.financeTableDataSource.sort = this.sort
   }
 

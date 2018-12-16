@@ -64,10 +64,8 @@ export class NewPartnerPageComponent implements OnInit {
     return this.partnerForm.get('agree');
   }
 
-
   insertNewPartner() {
     this.partner = {
-      id: 5000,
       name: this.partnerForm.get('name').value,
       city: this.partnerForm.get('city').value,
       address: this.partnerForm.get('address').value,
@@ -75,7 +73,12 @@ export class NewPartnerPageComponent implements OnInit {
     }
 
     this.partnerService.addPartner(this.partner);
-    this.router.navigateByUrl('/partner-page')
+
+
+    this.partnerService.refreshPartners().then((response : Partner[]) => {
+      this.partnerService.setPartners(response)
+      this.router.navigateByUrl('/partner-page')
+    })
 
   }
 }

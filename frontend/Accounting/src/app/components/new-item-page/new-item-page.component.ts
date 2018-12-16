@@ -71,17 +71,20 @@ export class NewItemPageComponent implements OnInit {
   }
 
   insertNewItem() {
-      this.finance = {        
-        id : 5000,
-        partnerName: this.itemForm.get('name').value,
-        amount: this.itemForm.get('amount').value, 
-        date_of_deadline:this.itemForm.get('dateOfDeadline').value, 
-        date_of_completion : this.itemForm.get('dateOfCompletion').value, 
-        description: this.itemForm.get('description').value
-      }
+    this.finance = {     
+      partnerName: this.itemForm.get('name').value,
+      amount: this.itemForm.get('amount').value, 
+      dateOfDeadline:this.itemForm.get('dateOfDeadline').value, 
+      dateOfCompletion : this.itemForm.get('dateOfCompletion').value, 
+      description: this.itemForm.get('description').value
+    }
 
-      this.financeService.addFinance(this.finance)
+    this.financeService.addFinance(this.finance)
+
+    this.financeService.refreshFinances().then((response : any) => {
+      this.financeService.setFinances(response)
       this.router.navigateByUrl('/finance-page')
-      
+    })
+
   }
 }

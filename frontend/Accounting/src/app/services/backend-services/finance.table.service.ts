@@ -1,25 +1,43 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FinanceTableItem } from 'src/app/interfaces/finance.table.item';
 
 @Injectable()
 export class FinanceTableService {
 
-  finances: FinanceTableItem[] = [
-    {id: 1, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-    {id: 2, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-    {id: 3, partnerName: 'name', amount: -100, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-    {id: 4, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-    {id: 5, partnerName: 'name', amount: -100, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'},
-    {id: 6, partnerName: 'name', amount: 500, date_of_deadline:'2018-12-10', date_of_completion : '2018-12-10', description: 'Leírás'}
-  ];
+    finances: FinanceTableItem[];
+    inited : boolean;
 
-  getFinances() {
-    return this.finances.slice()
-  }
+    constructor(private http: HttpClient) { }    
 
-  addFinance(finance : FinanceTableItem) {
-    this.finances.push(finance)
-  }
+    private get options() {
+        const headers = {
+          'Content-Type': 'application/json'
+        };
+    
+        if (window.sessionStorage.getItem('token')) {
+          headers['Authorization'] = `Basic ${window.sessionStorage.getItem('token')}`;          
+        }
+    
+        return {
+          headers: new HttpHeaders(headers)
+        }
+      };
+    
+    setFinances(finances : FinanceTableItem[]) {
+        this.finances = finances; 
+        this.inited = true;       
+    }
 
+    refreshFinances() {        
+        return this.http.get('http://localhost:8080/api/item/all',this.options).toPromise()        
+    }
 
+    addFinance(finance : FinanceTableItem) {        
+        return this.http.post('http://localhost:8080/api/item/add',finance,this.options).toPromise()        
+    }
+
+    getFinances() {
+        return this.finances.slice()
+    }
 }

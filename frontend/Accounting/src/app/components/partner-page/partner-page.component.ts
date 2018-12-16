@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Partner } from 'src/app/interfaces/partner.interface';
 import { PartnerService } from 'src/app/services/backend-services/partner.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-partner-page',
@@ -16,11 +17,10 @@ export class PartnerPageComponent implements OnInit {
 
   ngOnInit() {    
     if(!this.partnerService.inited)  {
-      this.partnerService.initPartners().then((response: any) => {
-        this.partners = JSON.parse(response["_body"]);      
+      this.partnerService.refreshPartners().then((response: Partner[]) => {
+        this.partners = response;      
         this.partnerService.setPartners(this.partners);
       })
-      console.log("if")
     }
     else {
       this.partners = this.partnerService.getPartners();
