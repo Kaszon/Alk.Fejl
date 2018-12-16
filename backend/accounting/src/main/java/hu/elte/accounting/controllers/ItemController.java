@@ -31,7 +31,7 @@ public class ItemController {
 
     @GetMapping(value = "/all")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
-    public ResponseEntity<Iterable<Item>> getActors() {
+    public ResponseEntity<Iterable<Item>> getItems() {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Iterable<Item> items = itemService.getAll(user.getUsername());
