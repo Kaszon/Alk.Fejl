@@ -1,8 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/backend-services/authentication.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -14,8 +12,7 @@ export class LoginPageComponent implements OnInit {
   loginForm : FormGroup;
 
   constructor(private fb : FormBuilder, 
-              private authService : AuthenticationService,
-              private router : Router) { }
+              private authService : AuthenticationService) { }
 
   ngOnInit() {     
     this.loginForm = this.fb.group({      
@@ -38,10 +35,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginClick() {
-    this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
-
-    if(sessionStorage.getItem('user') != null) {
-      this.router.navigateByUrl('/profile-page')
-    }    
+    this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)      
   }
 }

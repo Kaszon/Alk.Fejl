@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actor } from '../../interfaces/actor.interface';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
@@ -9,8 +10,9 @@ export class AuthenticationService {
     // Subject: generic osztály, AJAX kérést segít elő
     activeUser: Subject<Actor> = new Subject<Actor>();
     loggedIn : boolean;
+    hasActiveUser : Subject<Boolean> = new Subject<Boolean>();
 
-    constructor(private http: HttpClient) { 
+    constructor(private http: HttpClient, private router : Router) { 
 
     }
 
@@ -23,18 +25,21 @@ export class AuthenticationService {
         if(response != null) {
           let user: Actor = response;
           this.activeUser.next(user);
+          this.hasActiveUser.next(true);
           // key-value
           // lementi a sessionbe a belépett usert
           sessionStorage.setItem('user', JSON.stringify(user));
           const token = btoa(email + ':' + password);
           sessionStorage.setItem('token', token);
-
+          this.router.navigateByUrl('/profile-page')
+          
         }
       })
     }
 
     logout() {
       sessionStorage.clear();
+      this.hasActiveUser.next(false);
     }
 
     isLoggedIn(): boolean {
@@ -43,6 +48,10 @@ export class AuthenticationService {
 
     getActiveUser() {
       return this.activeUser;
+    }
+
+    getHasActiveUser() {
+      return this.hasActiveUser;
     }
 
 }

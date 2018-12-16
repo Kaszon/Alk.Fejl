@@ -1,8 +1,8 @@
-<div class="row" id="container">    
-        <div class="col-md-3">
+<div class="row container" [ngClass]="{'gridColumn' : hasActiveUser}">    
+    <div class="col-md-3" *ngIf="hasActiveUser">
             <app-sidebar></app-sidebar>
-        </div>
-    <div class="col-md-9" id="content">  
+    </div>
+    <div class="col-md-9 content">  
         <router-outlet></router-outlet>
     </div>
 </div>

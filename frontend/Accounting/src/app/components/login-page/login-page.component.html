@@ -1,22 +1,20 @@
 
-<h2> Bejelentkezés </h2>
-
-<form class="loginForm" [formGroup]="loginForm">
-    <mat-form-field class="loginFormField">
-        <input matInput placeholder="Email" formControlName="email">
-        <mat-error *ngIf="email.invalid && email.touched">
-            Az email nem megfelelő
-        </mat-error>
-        <mat-hint align="end">Az email nem megfelelő</mat-hint>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="loginFormField">
-        <input matInput type="password" placeholder="Jelszó" formControlName="password">
-        <mat-hint align="end">A jelszó hibás</mat-hint>
-        <mat-error *ngIf="password.invalid && password.touched">
-            A jelszó nem megfelelő
-        </mat-error>
-    </mat-form-field>    
-    <button mat-raised-button [disabled]="loginForm.invalid" color="primary" (click)="loginClick()">Belépés</button>
-
-</form>
+<div class="d-flex justify-content-center" >   
+        <h2> Bejelentkezés </h2>
+        <form class="loginForm" [formGroup]="loginForm">
+            <mat-form-field class="loginFormField">
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="email.invalid && email.touched">
+                    Az email nem megfelelő
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="loginFormField">
+                <input matInput type="password" placeholder="Jelszó" formControlName="password">
+                <mat-error *ngIf="password.invalid && password.touched">
+                    A jelszó nem megfelelő
+                </mat-error>
+            </mat-form-field>    
+            <button mat-raised-button [disabled]="loginForm.invalid" color="primary" (click)="loginClick()">Belépés</button>
+        </form>    
+</div>
