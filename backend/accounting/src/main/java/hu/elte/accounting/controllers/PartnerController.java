@@ -43,7 +43,7 @@ public class PartnerController {
     }
 
     @DeleteMapping("/delete/{id}")
-    @Secured({ "ROLE_USER", "ROLE_ADMIN" })
+    @Secured("ROLE_ADMIN")
     public ResponseEntity<Partner> delete(@PathVariable Integer id) {
         return partnerService.deletePartner(id);
     }
