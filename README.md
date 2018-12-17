@@ -9,7 +9,6 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
 <del>+ A látogató tudjon regisztrálni.</del>
 + A felhasználó tudjon az oldalra bejelentkezni.
 + Tudjon hozzáadni tételeket a kiadásokhoz/bevételekhez.
-+ Le tudjon kérdezni adott időszakra vonatkozóan tételek vagy partner alapján.
 + Tudja a megtakarításokat vezetni.
 
 ## Nem funkcionális követelmények:
