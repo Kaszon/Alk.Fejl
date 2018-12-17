@@ -44,39 +44,11 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <td align="left" width="20%">lekéri az összes tételét</td>
     </tr>
     <tr align="center" width="100%">
-        <td align="center" width="20%">GET</td>
-        <td align="center" width="20%">/api/item/deadline</td>
-        <td align="center" width="20%">Felhasználó</td>
-        <td align="center" width="20%">ITEM</td>
-        <td align="left" width="20%">kettő fizetési határidő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">GET</td>
-        <td align="center" width="20%">/api/item/completion</td>
-        <td align="center" width="20%">Felhasználó</td>
-        <td align="center" width="20%">ITEM</td>
-        <td align="left" width="20%">kettő teljesítési határidő dátum paraméterrel lekéri az összes tételét az adott időszakban</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">GET</td>
-        <td align="center" width="20%">/api/item/byPartner/{partnerId}</td>
-        <td align="center" width="20%">Felhasználó</td>
-        <td align="center" width="20%">ITEM</td>
-        <td align="left" width="20%">egy partner azonosítója paraméterrel lekéri az összes tételét amik ahhoz a partnerhez tartozak</td>
-    </tr>
-    <tr align="center" width="100%">
         <td align="center" width="20%">POST</td>
         <td align="center" width="20%">/api/item/add</td>
         <td align="center" width="20%">Felhasználó</td>
         <td align="center" width="20%">ITEM</td>
         <td align="left" width="20%">tételt hozzáad</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">PUT</td>
-        <td align="center" width="20%">/api/item/update/{id}</td>
-        <td align="center" width="20%">Felhasználó</td>
-        <td align="center" width="20%">ITEM</td>
-        <td align="left" width="20%">tételt módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="20%">DELETE</td>
@@ -98,18 +70,11 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <td align="center" width="20%">Felhasználó</td>
         <td align="center" width="20%">PARTNER</td>
         <td align="left" width="20%">partnert hozzáad</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">PUT</td>
-        <td align="center" width="20%">/api/partner/update/{id}</td>
-        <td align="center" width="20%">Felhasználó</td>
-        <td align="center" width="20%">PARTNER</td>
-        <td align="left" width="20%">partnert módosít</td>
     </tr>    
     <tr align="center" width="100%">
         <td align="center" width="20%">DELETE</td>
         <td align="center" width="20%">/api/partner/delete/{id}</td>
-        <td align="center" width="20%">Felhasználó</td>
+        <td align="center" width="20%">Admin</td>
         <td align="center" width="20%">PARTNER</td>
         <td align="left" width="20%">partnert töröl</td>
     </tr>
@@ -140,34 +105,6 @@ Egy otthoni könyvelő programot készítünk, melyre bejelentkezés után lehet
         <td align="center" width="20%">Felhasználó</td>
         <td align="center" width="20%">CATEGORY</td>
         <td align="left" width="20%">kategóriát töröl</td>
-    </tr>
-        <tr align="center" width="100%">
-        <td align="center" width="20%">GET</td>
-        <td align="center" width="20%">/api/actor/all</td>
-        <td align="center" width="20%">Admin</td>
-        <td align="center" width="20%">ACTOR</td>
-        <td align="left" width="20%">lekéri az összes felhasználót</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">POST</td>
-        <td align="center" width="20%">/api/actor/add</td>
-        <td align="center" width="20%">Admin</td>
-        <td align="center" width="20%">ACTOR</td>
-        <td align="left" width="20%">felhasználót hozzáad, nem regisztráción keresztül</td>
-    </tr>
-    <tr align="center" width="100%">
-        <td align="center" width="20%">PUT</td>
-        <td align="center" width="20%">/api/actor/update/{id}</td>
-        <td align="center" width="20%">Admin</td>
-        <td align="center" width="20%">ACTOR</td>
-        <td align="left" width="20%">felhasználót módosít</td>
-    </tr>    
-    <tr align="center" width="100%">
-        <td align="center" width="20%">DELETE</td>
-        <td align="center" width="20%">/api/actor/delete/{id}</td>
-        <td align="center" width="20%">Admin</td>
-        <td align="center" width="20%">ACTOR</td>
-        <td align="left" width="20%">felhasználót töröl</td>
     </tr>
 </table>
 
