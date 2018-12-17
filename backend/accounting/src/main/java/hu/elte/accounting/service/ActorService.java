@@ -61,6 +61,19 @@ public class ActorService {
         actor.setId(id);
         return ResponseEntity.ok(actorRepository.save(actor));
     }
+    
+    @Transactional
+    public ResponseEntity<Actor> updateBalance(Integer id, Integer amount) {
+        Optional<Actor> oActor = actorRepository.findById(id);
+        if (!oActor.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        Actor actor = oActor.get();
+        actor.updateBalance(amount);
+        
+        return ResponseEntity.ok(actorRepository.save(actor));
+    }
 
     @Transactional
     public ResponseEntity<Actor> deleteActor(Integer id) {

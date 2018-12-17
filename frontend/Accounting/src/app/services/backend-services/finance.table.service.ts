@@ -6,8 +6,6 @@ import { FinanceTableItem } from 'src/app/interfaces/finance.table.item';
 export class FinanceTableService {
 
     finances: FinanceTableItem[];
-    inited : boolean;
-
     constructor(private http: HttpClient) { }    
 
     private get options() {
@@ -26,18 +24,31 @@ export class FinanceTableService {
     
     setFinances(finances : FinanceTableItem[]) {
         this.finances = finances; 
-        this.inited = true;       
     }
 
     refreshFinances() {        
         return this.http.get('http://localhost:8080/api/item/all',this.options).toPromise()        
     }
 
-    addFinance(finance : FinanceTableItem) {        
+    addFinance(finance) {        
         return this.http.post('http://localhost:8080/api/item/add',finance,this.options).toPromise()        
     }
 
     getFinances() {
         return this.finances.slice()
+    }
+
+   
+
+    deleteFinance(id : number) {
+        let counter = 0;
+        for (var i=0; i<this.finances.length; i++) {
+            if(this.finances[i].id == id) {                
+                counter = i;
+                break;
+            }
+        }
+        this.finances.splice(counter,1)
+        return this.http.delete('http://localhost:8080/api/item/delete/'+id,this.options).toPromise()        
     }
 }

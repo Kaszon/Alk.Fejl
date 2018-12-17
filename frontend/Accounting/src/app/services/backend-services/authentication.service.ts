@@ -3,6 +3,9 @@ import { Actor } from '../../interfaces/actor.interface';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PartnerService } from './partner.service';
+import { Partner } from 'src/app/interfaces/partner.interface';
+import { FinanceTableService } from './finance.table.service';
 
 @Injectable()
 export class AuthenticationService {
@@ -12,7 +15,10 @@ export class AuthenticationService {
     loggedIn : boolean;
     hasActiveUser : Subject<Boolean> = new Subject<Boolean>();
 
-    constructor(private http: HttpClient, private router : Router) { 
+    constructor(private http: HttpClient, 
+                private router : Router,
+                private partnerService : PartnerService,
+                private financeTableService : FinanceTableService) { 
 
     }
 
@@ -31,8 +37,14 @@ export class AuthenticationService {
           sessionStorage.setItem('user', JSON.stringify(user));
           const token = btoa(email + ':' + password);
           sessionStorage.setItem('token', token);
-          this.router.navigateByUrl('/profile-page')
-          
+
+          this.partnerService.refreshPartners().then((response: Partner[]) => {
+            this.partnerService.setPartners(response);    
+            this.financeTableService.refreshFinances().then((response: any) => {
+              this.financeTableService.setFinances(response);
+              this.router.navigateByUrl('/profile-page')
+            })          
+          })
         }
       })
     }

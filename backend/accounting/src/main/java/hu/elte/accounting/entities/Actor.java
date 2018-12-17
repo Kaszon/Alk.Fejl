@@ -57,4 +57,8 @@ public class Actor implements Serializable {
     @OneToMany(mappedBy = "actor")
     @JsonIgnore
     private List<Item> items;
+    
+    public void updateBalance(Integer amount) {
+        this.balance += amount;
+    }
 }

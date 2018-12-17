@@ -30,7 +30,7 @@ public class Partner implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(columnDefinition = "VARCHAR2(60) NOT NULL")
+    @Column(unique = true, columnDefinition = "VARCHAR2(60) NOT NULL")
     private String name;
 
     @Column(columnDefinition = "VARCHAR2(60) NOT NULL")

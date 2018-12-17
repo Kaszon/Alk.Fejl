@@ -4,10 +4,21 @@
 <ul>
   <li *ngFor="let partner of partners">
     <h2>{{ partner.name }}</h2>
-    <ul>
-      <li>Város: {{ partner.city }}</li> 
-      <li>Cím: {{ partner.address }}</li> 
-      <li>Adószám: {{ partner.taxNum }}</li> 
-    </ul>
+    <table class="fullWidth">
+    <tr>
+      <td>
+        <ul>
+          <li>Város: {{ partner.city }}</li> 
+          <li>Cím: {{ partner.address }}</li> 
+          <li>Adószám: {{ partner.taxNum }}</li>       
+        </ul>
+      </td>
+      <td class="right" *ngIf="isAdmin">
+         <li>
+           <button class="deleteButton" mat-button (click)="delete(partner.id)" >Törlés</button>
+         </li>
+      </td>
+    </tr>
+  </table>
   </li>
 </ul>

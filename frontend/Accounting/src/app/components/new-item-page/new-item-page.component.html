@@ -1,13 +1,15 @@
 <h2> Új tétel felvitele</h2>
 
 <form class="itemForm" [formGroup]="itemForm">
+
     <mat-form-field class="itemFormField">
-        <input matInput placeholder="Név" formControlName="name">
-        <mat-error *ngIf="name.invalid && name.touched">
-            Nem megfelelő a név formátuma
-        </mat-error>
-        <mat-hint align="end">A név csak betűket tartalmazhat</mat-hint>
+        <mat-select placeholder="Partner name" formControlName="name">
+            <mat-option *ngFor="let partnerName of partnerNames" [value]="partnerName">
+                {{partnerName}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
+
     <br>
     <mat-form-field class="itemFormField">
         <input matInput type="number" placeholder="Összeg" formControlName="amount">

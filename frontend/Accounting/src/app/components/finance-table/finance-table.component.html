@@ -10,7 +10,7 @@
     <!-- Amount Column -->
     <ng-container matColumnDef="amount">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Összeg</th>
-      <td mat-cell *matCellDef="let row" [ngClass]="{'negative' : !isPositive(row.amount), 'positive' : isPositive(row.amount) }" >{{row.amount}} Ft</td>
+      <td mat-cell *matCellDef="let row" [ngClass]="{'negative' : !isPositive(row.amount), 'positive' : isPositive(row.amount) }" >{{row.amount }} Ft</td>
     </ng-container>
 
     <!-- Date of Deadline Column -->
@@ -31,10 +31,23 @@
       <td mat-cell *matCellDef="let row">{{row.description}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="delete">        
+        <th mat-header-cell *matHeaderCellDef>Törlés</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-button (click)="delete(row.id, row.amount)">Törlés</button>
+        </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
   <mat-paginator #paginator [length]="financeTableDataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 25, 50, 100, 250]">
   </mat-paginator>
+
 </div>
+
+<div class="add_new_item">
+    <button id="btnNewItem" mat-flat-button color="primary" routerLink="new-item-page">Új tétel hozzáadása</button>    
+</div>
+

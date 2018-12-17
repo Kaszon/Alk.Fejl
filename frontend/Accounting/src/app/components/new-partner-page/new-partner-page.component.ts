@@ -72,13 +72,11 @@ export class NewPartnerPageComponent implements OnInit {
       taxNum: this.partnerForm.get('taxNum').value
     }
 
-    this.partnerService.addPartner(this.partner);
-
-
-    this.partnerService.refreshPartners().then((response : Partner[]) => {
-      this.partnerService.setPartners(response)
-      this.router.navigateByUrl('/partner-page')
-    })
-
+    this.partnerService.addPartner(this.partner).then(() => {
+      this.partnerService.refreshPartners().then((response : Partner[]) => {
+        this.partnerService.setPartners(response)
+        this.router.navigateByUrl('/partner-page')
+      })
+    });
   }
 }

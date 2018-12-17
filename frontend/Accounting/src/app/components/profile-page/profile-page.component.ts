@@ -3,6 +3,7 @@ import { AuthenticationService } from 'src/app/services/backend-services/authent
 import { Actor } from 'src/app/interfaces/actor.interface';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -19,13 +20,12 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.hasData = this.authService.isLoggedIn()
-    this.actor = JSON.parse(window.sessionStorage.getItem('user'));
-    console.log(this.hasData)
-      this.subscription = this.authService.getActiveUser().subscribe((actor : Actor) => {
-          console.log(actor);          
+    this.actor = JSON.parse(window.sessionStorage.getItem('user'));    
+      this.subscription = this.authService.getActiveUser().subscribe((actor : Actor) => {          
           this.hasData = true;
           this.actor = actor; 
-      })
+    })  
+    
   }
 
   ngOnDestroy(): void {

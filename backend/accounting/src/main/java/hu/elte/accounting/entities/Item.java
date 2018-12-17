@@ -45,8 +45,7 @@ public class Item implements Serializable {
     @JoinTable
     private List<Category> categories;    
 
-    @Column
-    @Min(0)
+    @Column    
     private Integer amount;
 
     @Column

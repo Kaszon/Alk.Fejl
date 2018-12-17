@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hu.elte.accounting.entities.Item;
+import hu.elte.accounting.entities.NewItem;
 import hu.elte.accounting.service.ItemService;
 
 @CrossOrigin
@@ -65,11 +66,13 @@ public class ItemController {
 
     @PostMapping(value = "/add")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
-    public ResponseEntity<Item> addItem(@RequestBody Item item) {
-        item.setId(null);
-        itemService.addItem(item);
-        return ResponseEntity.ok(item);
-    }
+    public ResponseEntity<Item> addItem(@RequestBody NewItem item) {        
+        Item newItem = itemService.addNewItem(item);
+        if(newItem == null) {
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.ok(newItem);
+    }  
 
     @PutMapping(value = "/update/{id}")
     @Secured({ "ROLE_USER", "ROLE_ADMIN" })
