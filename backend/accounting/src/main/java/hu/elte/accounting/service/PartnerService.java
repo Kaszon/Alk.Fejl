@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import hu.elte.accounting.entities.Partner;
+import hu.elte.accounting.repositories.ActorRepository;
 import hu.elte.accounting.repositories.ItemRepository;
 import hu.elte.accounting.repositories.PartnerRepository;
 
@@ -18,6 +19,8 @@ public class PartnerService {
     private PartnerRepository partnerRepository;
     @Autowired
     private ItemRepository itemRepository;
+    @Autowired
+    private ActorRepository actorRepository;
 
     @Transactional(readOnly = true)
     public Iterable<Partner> all() {
@@ -50,7 +53,11 @@ public class PartnerService {
         if (!oPartner.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        itemRepository.findByPartnerId(id).forEach(item -> itemRepository.delete(item));
+        itemRepository.findByPartnerId(id).forEach( item -> {
+          item.getActor().updateBalance(item.getAmount());
+          itemRepository.delete(item);
+          actorRepository.save(item.getActor());
+                });
         partnerRepository.delete(oPartner.get());
         return ResponseEntity.ok().build();
     }
